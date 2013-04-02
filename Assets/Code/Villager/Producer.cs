@@ -73,17 +73,25 @@ public class Producer : Coward
 					continue;
 				}
 				
+				villager.Inventory.AddItem(building.ResourceTaken);
+				
 				//Return to production building
 				currentState = "Return to production building";
 				yield return StartCoroutine(GoToProductionBuilding());
+				
+				villager.Inventory.ClearItems();
 				
 				//Produce item
 				currentState = "Producing item";
 				yield return new WaitForSeconds(GameSettings.ResourceSettings[building.ResourceProduced].TimeToGatherSeconds);
 				
+				villager.Inventory.AddItem(building.ResourceProduced);
+				
 				//Deposit item at stockpile
 				currentState = "Deposit " + building.ResourceProduced + " at stockpile";
 				yield return StartCoroutine(DepositAtStockpile(building.ResourceProduced, GoToProductionBuilding, 1));
+				
+				villager.Inventory.ClearItems();
 			}
 		}
 	}

@@ -72,10 +72,14 @@ public class Gatherer : Coward
 					break;				
 			}
 			
+			villager.Inventory.AddItem(Type);
+			
 			//3. Find and path to a stockpile
 			currentState = "Deposit at stockpile";
 			yield return StartCoroutine(DepositAtStockpile(Type, WaitByCampfire, resourceCarried));
 			resourceCarried = 0;
+			
+			villager.Inventory.ClearItems();
 		}
 	}
 }

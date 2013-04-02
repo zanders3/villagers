@@ -101,11 +101,27 @@ public class Stockpile : MonoBehaviour
 	public static void WithdrawResource(int amount, ResourceType type)
 	{
 		foreach (Stockpile stockpile in GameObject.FindObjectsOfType(typeof(Stockpile)).Cast<Stockpile>())
+		{
 			stockpile.Withdraw(ref amount, type);
+			if (amount <= 0)
+				return;
+		}
 		
 		//This can happen because you can have starting resources that don't physically exist in the world! D:
 		if (amount > 0)
 			Resources[type] -= amount;
+	}
+	
+	public static void DepositResource(int amount, ResourceType type)
+	{
+		foreach (Stockpile stockpile in GameObject.FindObjectsOfType(typeof(Stockpile)).Cast<Stockpile>())
+		{
+			stockpile.Deposit(ref amount, type);
+			if (amount <= 0)
+				return;
+		}
+		
+		Resources[type] += amount;
 	}
 	
 	private void UpdateResourcePrefabs()

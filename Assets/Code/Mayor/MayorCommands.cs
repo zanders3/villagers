@@ -47,9 +47,7 @@ public class MayorCommands : MonoBehaviour
 			if (followingVillagers.Count == 0)
 				return false;
 			
-			Building building = hit.collider.GetComponent<Building>();
-			if (building == null && hit.collider.transform.parent != null)
-				building = hit.collider.transform.parent.GetComponent<Building>();
+			Building building = GetComponentInHierarchy<Building>(hit.collider);
 			if (building != null)
 			{
 				Debug.Log("Clicked a building: " + building.BuildingType);
@@ -69,23 +67,35 @@ public class MayorCommands : MonoBehaviour
 				}
 			}
 			
-			Resource resource = hit.collider.GetComponent<Resource>();
-			if (resource == null && hit.collider.transform.parent != null)
-				resource = hit.collider.transform.parent.GetComponent<Resource>();
+			Resource resource = GetComponentInHierarchy<Resource>(hit.collider);
 			if (resource != null)
 			{
-				Debug.Log("Found a resource!");
-				if (followingVillagers.Count > 0)
-				{
-					Villager villager = PopVillager();
-					villager.SetMode(Villager.Mode.Gatherer);
-					villager.GetComponent<Gatherer>().Type = resource.Type;
-					return true;
-				}
+				//Debug.Log("Found a resource!");
+				Villager villager = PopVillager();
+				villager.SetMode(Villager.Mode.Gatherer);
+				villager.GetComponent<Gatherer>().Type = resource.Type;
+				return true;
+			}
+			
+			Stockpile stockpile = hit.collider.GetComponent<Stockpile>();
+			if (stockpile != null && stockpile.ResourceType == ResourceType.Pike)
+			{
+				Villager villager = PopVillager();
+				villager.SetMode(Villager.Mode.Soldier);
+				villager.GetComponent<Soldier>().Weapon = stockpile.ResourceType;
+				return true;
 			}
 		}
 		
 		return false;
+	}
+	
+	private T GetComponentInHierarchy<T>(Collider collider) where T : Component
+	{
+		T component = collider.GetComponent<T>();
+		if (component == null && collider.transform.parent != null)
+			component = collider.transform.parent.GetComponent<T>();
+		return component;
 	}
 	
 	private Villager PopVillager()
