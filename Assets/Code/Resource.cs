@@ -24,7 +24,6 @@ public class Resource : MonoBehaviour
 		if (resourceAmount <= 0)
 		{
 			Map.Instance.ClearResource(this);
-			Destroy(gameObject);
 		}
 		
 		return true;

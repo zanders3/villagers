@@ -10,6 +10,11 @@ public class Building : MonoBehaviour
 	
 	private int health = 0;
 	
+	public int Health
+	{
+		get { return health; }
+	}
+	
 	public static Building TownHall
 	{
 		get;
@@ -47,6 +52,16 @@ public class Building : MonoBehaviour
 		{
 			health = 0;
 			IsBuilt = false;
+		}
+	}
+	
+	public void Damage(int amount)
+	{
+		health -= amount;
+		if (health <= 0)
+		{
+			health = 0;
+			Destroy(gameObject);
 		}
 	}
 	

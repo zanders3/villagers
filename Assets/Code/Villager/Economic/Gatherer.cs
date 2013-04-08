@@ -28,10 +28,7 @@ public class Gatherer : Coward
 		{
 			//Is there a stockpile with available space?
 			while (Stockpile.GetFullestStockpile(Type) == null)
-			{
-				currentState = "No stockpiles with space!";
-				yield return StartCoroutine(WaitByCampfire());
-			}
+				yield return StartCoroutine(WaitByCampfire("No stockpile space"));
 			
 			//1. path towards the nearest resource
 			currentState = "Path to resource";
@@ -76,7 +73,7 @@ public class Gatherer : Coward
 			
 			//3. Find and path to a stockpile
 			currentState = "Deposit at stockpile";
-			yield return StartCoroutine(DepositAtStockpile(Type, WaitByCampfire, resourceCarried));
+			yield return StartCoroutine(DepositAtStockpile(Type, () => WaitByCampfire("No stockpile space"), resourceCarried));
 			resourceCarried = 0;
 			
 			villager.Inventory.ClearItems();

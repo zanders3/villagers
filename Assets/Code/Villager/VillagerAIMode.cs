@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Linq;
 using System.Collections;
 
 //Base class for all villager AI modes. Contains methods that implemented behaviours that villagers share.
@@ -39,14 +40,53 @@ public abstract class VillagerAIMode : MonoBehaviour
 		}
 	}
 	
-	protected IEnumerator WaitByCampfire()
+	protected IEnumerator WaitByCampfire(string parentMode)
 	{
-		//Wait by the campfire
-		Vector3 targetPos = Building.TownHall.transform.position + new Vector3(0.5f, 0.0f, 2.0f);
-		
-		if (Vector3.Distance(targetPos, transform.position) > 2.0f)
-			yield return StartCoroutine(GetComponent<PathingCharacter>().PathTo(Building.TownHall.Tx + Random.Range(0, 2), Building.TownHall.Ty + Random.Range(2,5)));
 		yield return new WaitForSeconds(1.0f);
+		
+		while (true)
+		{
+			//Is there any building work available?
+			float nearestBuilding = float.MaxValue;
+			Building buildingToBuild = null;
+			foreach (Building building in GameObject.FindSceneObjectsOfType(typeof(Building)).Cast<Building>())
+			{
+				if (!building.IsBuilt)
+				{
+					float distance = Vector3.Distance(building.transform.position, transform.position);
+					if (distance < nearestBuilding)
+					{
+						buildingToBuild = building;
+						nearestBuilding = distance;
+					}
+				}
+			}
+			
+			if (buildingToBuild == null)
+			{
+				currentState = parentMode + " - Waiting by campfire";
+				//Wait by the campfire
+				Vector3 targetPos = Building.TownHall.transform.position + new Vector3(0.5f, 0.0f, 2.0f);
+				
+				if (Vector3.Distance(targetPos, transform.position) > 2.0f)
+					yield return StartCoroutine(GetComponent<PathingCharacter>().PathTo(Building.TownHall.Tx + Random.Range(0, 2), Building.TownHall.Ty + Random.Range(2,5)));
+				yield return new WaitForSeconds(1.0f);
+			}
+			else
+			{
+				currentState = parentMode + " - Moving to building";
+				//Go to the building
+				yield return StartCoroutine(character.PathToBuilding(buildingToBuild));
+				
+				//Build it
+				currentState = parentMode + " - Building";
+				while (!buildingToBuild.IsBuilt)
+				{
+					buildingToBuild.Build();
+					yield return new WaitForSeconds(2.0f);
+				}
+			}
+		}
 	}
 	
 	protected IEnumerator MoveToStockpile(Stockpile stockpile)

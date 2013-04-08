@@ -14,7 +14,7 @@ public enum ResourceType
 }
 
 [RequireComponent(typeof(Building))]
-public class Stockpile : MonoBehaviour 
+public class Stockpile : Building 
 {
 	public static Dictionary<ResourceType, int> Resources = new Dictionary<ResourceType, int>()
 	{
@@ -29,16 +29,10 @@ public class Stockpile : MonoBehaviour
 	{
 		get { return type; }
 	}
-	
-	private Building building;
+
 	private ResourceType type = ResourceType.None;
 	private int amount = 0;
 	private Stack<Transform> resourcePrefabs = new Stack<Transform>();
-	
-	void Start()
-	{
-		building = GetComponent<Building>();
-	}
 	
 	void Destroy()
 	{
@@ -64,7 +58,7 @@ public class Stockpile : MonoBehaviour
 	
 	public bool CanDeposit(ResourceType type)
 	{
-		return building.IsBuilt && (this.type == type || this.type == ResourceType.None) && !IsFull;
+		return IsBuilt && (this.type == type || this.type == ResourceType.None) && !IsFull;
 	}
 	
 	public void Deposit(ref int amount, ResourceType type)

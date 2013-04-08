@@ -190,7 +190,6 @@ public class Map : MonoBehaviour
 		int tx = Mathf.RoundToInt(resource.transform.position.x), ty = Mathf.RoundToInt(resource.transform.position.z);
 		tiles[tx,ty] = Tile.Ground;
 		resources[tx, ty] = null;
-		MakeTile(Tile.Ground, tx, ty);
 		
 		Destroy(resource.gameObject);
 	}

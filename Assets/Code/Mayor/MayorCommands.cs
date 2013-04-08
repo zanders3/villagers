@@ -13,7 +13,7 @@ public class MayorCommands : MonoBehaviour
 			guiClicked = true;
 			
 			foreach (Villager villager in followingVillagers)
-				villager.SetMode(Villager.Mode.Builder);
+				villager.SetMode(Villager.Mode.Idle);
 			
 			followingVillagers.Clear();
 		}
@@ -53,7 +53,7 @@ public class MayorCommands : MonoBehaviour
 				Debug.Log("Clicked a building: " + building.BuildingType);
 				if (!building.IsBuilt)
 				{
-					PopVillager().SetMode(Villager.Mode.Builder);
+					PopVillager().SetMode(Villager.Mode.Idle);
 					return true;
 				}
 				else if (building is ProductionBuilding)
@@ -65,6 +65,10 @@ public class MayorCommands : MonoBehaviour
 						return true;
 					}
 				}
+				else if (building.BuildingType == Tile.Stockpile)
+				{
+					
+				}
 			}
 			
 			Resource resource = GetComponentInHierarchy<Resource>(hit.collider);
@@ -74,15 +78,6 @@ public class MayorCommands : MonoBehaviour
 				Villager villager = PopVillager();
 				villager.SetMode(Villager.Mode.Gatherer);
 				villager.GetComponent<Gatherer>().Type = resource.Type;
-				return true;
-			}
-			
-			Stockpile stockpile = hit.collider.GetComponent<Stockpile>();
-			if (stockpile != null && stockpile.ResourceType == ResourceType.Pike)
-			{
-				Villager villager = PopVillager();
-				villager.SetMode(Villager.Mode.Soldier);
-				villager.GetComponent<Soldier>().Weapon = stockpile.ResourceType;
 				return true;
 			}
 		}

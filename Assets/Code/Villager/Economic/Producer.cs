@@ -41,7 +41,7 @@ public class Producer : Coward
 		if (building == null)
 		{
 			currentState = "Failed to find an available production building";
-			GetComponent<Villager>().SetMode(Villager.Mode.Builder);
+			GetComponent<Villager>().SetMode(Villager.Mode.Idle);
 		}
 		else
 		{

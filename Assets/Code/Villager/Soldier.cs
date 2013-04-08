@@ -4,7 +4,7 @@ using System.Collections;
 //Soldiers gather at guard posts or the town campfire.
 public class Soldier : VillagerAIMode
 {
-	public ResourceType Weapon = ResourceType.None;
+	public ResourceType Weapon = ResourceType.Pike;
 	private bool hasWeapon = false;
 	
 	protected override IEnumerator RunDaytime()
@@ -32,7 +32,7 @@ public class Soldier : VillagerAIMode
 			{
 				stockpile = Stockpile.GetNearestStockpileWithResource(Weapon, transform.position);
 				if (stockpile == null)
-					villager.SetMode(Villager.Mode.Builder);
+					villager.SetMode(Villager.Mode.Idle);
 					
 				yield return MoveToStockpile(stockpile);
 				
@@ -52,7 +52,6 @@ public class Soldier : VillagerAIMode
 		}
 		
 		//Wait by the campfire
-		currentState = "Soldier - Waiting by campfire";
-		yield return WaitByCampfire();
+		yield return WaitByCampfire("Soldier");
 	}
 }

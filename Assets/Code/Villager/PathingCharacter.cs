@@ -83,6 +83,18 @@ public class PathingCharacter : Character
 		}
 	}
 	
+	public IEnumerator PathToBuilding(Building building)
+	{
+		int tx = building.Tx, ty = building.Ty;
+		yield return StartCoroutine(PathTo((x,y) =>
+			{
+				return Mathf.Abs(tx - x) == 1 && Mathf.Abs(ty - y) == 1;
+			},
+			(cx, cy) => (Mathf.Abs(tx - cx) + Mathf.Abs(ty - cy)) * 10,
+			new Vector2(building.transform.position.x, building.transform.position.z)
+		));
+	}
+	
 	void OnDrawGizmos()
 	{
 		Gizmos.color = Color.green;

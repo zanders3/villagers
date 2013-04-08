@@ -9,7 +9,7 @@ public class Villager : MonoBehaviour
 	public enum Mode
 	{
 		None,
-		Builder,
+		Idle,
 		Follower,
 		Gatherer,
 		Producer,
@@ -18,7 +18,7 @@ public class Villager : MonoBehaviour
 	
 	private static Dictionary<Mode, System.Type> ModeToScript = new Dictionary<Mode, System.Type>()
 	{
-		{ Mode.Builder, typeof(Builder) },
+		{ Mode.Idle, typeof(Idle) },
 		{ Mode.Follower, typeof(Follower) },
 		{ Mode.Gatherer, typeof(Gatherer) },
 		{ Mode.Producer, typeof(Producer) },
@@ -30,12 +30,14 @@ public class Villager : MonoBehaviour
 	public House Home;
 	private Mode mode = Mode.None;
 	
+	public Mode InitialMode = Mode.Idle;
+	
 	void Start()
 	{
 		Inventory = new VillagerItems(transform);
 		
 		Stockpile.Resources[ResourceType.Villagers]++;
-		SetMode(Mode.Builder);
+		SetMode(InitialMode);
 	}
 	
 	void Destroy()

@@ -3,13 +3,8 @@ using System.Collections;
 
 public class FollowCamera : MonoBehaviour 
 {
-	Vector3 offset;
+	public Vector3 offset;
 	public Mayor Mayor;
-	
-	void Start() 
-	{
-		offset = transform.position - Mayor.transform.position;
-	}
 	
 	void LateUpdate() 
 	{

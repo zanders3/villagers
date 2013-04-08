@@ -18,8 +18,7 @@ public abstract class Coward : VillagerAIMode
 		}
 		else
 		{
-			currentState = "Homeless - waiting by campfire";
-			yield return StartCoroutine(WaitByCampfire());
+			yield return StartCoroutine(WaitByCampfire("Homeless"));
 		}
 	}
 }
