@@ -52,6 +52,7 @@ public class Soldier : VillagerAIMode
 		}
 		
 		//Wait by the campfire
-		yield return WaitByCampfire("Soldier");
+		while (true)
+			yield return StartCoroutine(WaitByCampfire("Soldier"));
 	}
 }

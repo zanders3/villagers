@@ -5,6 +5,7 @@ public class Idle : Coward
 {
 	protected override IEnumerator RunDaytime()
 	{
-		yield return StartCoroutine(WaitByCampfire("Idle"));
+		while (true)
+			yield return StartCoroutine(WaitByCampfire("Idle"));
 	}
 }
