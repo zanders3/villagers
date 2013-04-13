@@ -13,7 +13,7 @@ public class MayorCommands : MonoBehaviour
 			guiClicked = true;
 			
 			foreach (Villager villager in followingVillagers)
-				villager.SetMode(Villager.Mode.Idle);
+                villager.SetFollowing(false);
 			
 			followingVillagers.Clear();
 		}
@@ -37,7 +37,7 @@ public class MayorCommands : MonoBehaviour
 				{
 					if (!followingVillagers.Contains(villager))
 					{
-						villager.SetMode(Villager.Mode.Follower);
+                        villager.SetFollowing(true);
 						followingVillagers.Add(villager);
 					}
 					return true;
@@ -61,7 +61,8 @@ public class MayorCommands : MonoBehaviour
 					ProductionBuilding prodBuilding = (ProductionBuilding)building;
 					if (prodBuilding.Villager == null)
 					{
-						PopVillager().SetMode(Villager.Mode.Producer);
+                        PopVillager().SetMode(Villager.Mode.Producer);
+
 						return true;
 					}
 				}

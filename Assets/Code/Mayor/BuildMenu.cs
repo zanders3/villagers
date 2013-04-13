@@ -7,6 +7,7 @@ public class BuildingDefinition
 {	
 	public bool CanAfford()
 	{
+		Debug.Log ("CanAfford: " + Prefab.BuildingType);
 		foreach (var resourceCost in GameSettings.BuildingCost[Prefab.BuildingType])
 			if (Stockpile.Resources[resourceCost.Key] < resourceCost.Value)
 				return false;

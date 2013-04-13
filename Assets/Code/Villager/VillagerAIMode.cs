@@ -9,22 +9,33 @@ public abstract class VillagerAIMode : MonoBehaviour
 	protected PathingCharacter character;
 	protected Villager villager;
 	protected string currentState = string.Empty;
-	
+
+	private bool isFollowing = false;
+
 	void Start()
 	{
 		villager = GetComponent<Villager>();
 		character = GetComponent<PathingCharacter>();
-		
-		StartCoroutine(RunDaytime());
+
+		OnStateChange();
 	}
 	
-	public void SetDaytime(bool isDaytime)
+	public void OnStateChange()
 	{
 		StopAllCoroutines();
-		if (isDaytime)
+
+		if (isFollowing)
+			StartCoroutine(FollowMayor());
+		else if (DayNightCycle.IsDaytime)
 			StartCoroutine(RunDaytime());
 		else
 			StartCoroutine(RunNighttime());
+	}
+
+	public void SetFollowing(bool isFollowing)
+	{
+		this.isFollowing = isFollowing;
+		OnStateChange();
 	}
 	
 	protected abstract IEnumerator RunNighttime();
@@ -79,7 +90,7 @@ public abstract class VillagerAIMode : MonoBehaviour
 			while (!buildingToBuild.IsBuilt)
 			{
 				buildingToBuild.Build();
-				yield return new WaitForSeconds(2.0f);
+				yield return new WaitForSeconds(GameSettings.ConstructionHealthPerSecond);
 			}
 		}
 
@@ -132,6 +143,27 @@ public abstract class VillagerAIMode : MonoBehaviour
 				if (resourceAmount > 0)
 					currentStockpile = null;
 			}
+		}
+	}
+
+	private IEnumerator FollowMayor()
+	{
+        currentState = "Following mayor";
+        Mayor mayor = (Mayor)GameObject.FindObjectOfType(typeof(Mayor));
+
+		while (true) 
+		{
+			//Villagers try to follow about 1 tile away
+			Vector3 direction = (mayor.transform.position - transform.position).normalized;
+			character.FinalTarget = mayor.transform.position - direction;
+
+			if (Vector3.Distance(villager.transform.position, mayor.transform.position) > 1.5f) 
+			{
+				yield return StartCoroutine(character.PathTo(Mathf.RoundToInt(mayor.transform.position.x), Mathf.RoundToInt(mayor.transform.position.z)));
+				yield return new WaitForSeconds(0.2f);
+			}
+
+			yield return new WaitForEndOfFrame();
 		}
 	}
 }

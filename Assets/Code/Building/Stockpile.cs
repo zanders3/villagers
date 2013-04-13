@@ -13,7 +13,6 @@ public enum ResourceType
 	Pike
 }
 
-[RequireComponent(typeof(Building))]
 public class Stockpile : Building 
 {
 	public static Dictionary<ResourceType, int> Resources = new Dictionary<ResourceType, int>()
@@ -22,7 +21,7 @@ public class Stockpile : Building
 		{ ResourceType.Wood, 50 },
 		{ ResourceType.VillagerLimit, 0 },
 		{ ResourceType.Villagers, 0 },
-		{ ResourceType.Pike, 0 }
+		{ ResourceType.Pike, 1 }
 	};
 	
 	public ResourceType ResourceType
@@ -193,6 +192,6 @@ public class Stockpile : Building
 	void OnGUI()
 	{
 		Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
-		GUI.Label(new Rect(screenPos.x, Screen.height - screenPos.y, 200.0f, 20.0f), "Storing " + type + " " + this.amount + " / " + MaxStorage);
+		GUI.Label(new Rect(screenPos.x, Screen.height - screenPos.y, 200.0f, 20.0f), "Storing " + type + (this.amount > 0 ? (" " + this.amount + " / " + MaxStorage) : string.Empty));
 	}
 }

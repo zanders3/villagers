@@ -66,11 +66,13 @@ public class Pathfinder
 			current = null;
 			int smallestCost = int.MaxValue;
 			foreach (PathNode node in openList)
+			{
 				if (node.F < smallestCost)
 				{
 					current = node;
 					smallestCost = node.F;
 				}
+			}
 			
 			//No path
 			if (current == null)

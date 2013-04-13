@@ -71,4 +71,7 @@ public static class GameSettings
 			}
 		}
 	};
+
+	//Construction gubbins
+	public const float ConstructionHealthPerSecond = 2.0f;
 }

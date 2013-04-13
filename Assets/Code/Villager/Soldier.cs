@@ -32,7 +32,16 @@ public class Soldier : VillagerAIMode
 			{
 				stockpile = Stockpile.GetNearestStockpileWithResource(Weapon, transform.position);
 				if (stockpile == null)
-					villager.SetMode(Villager.Mode.Idle);
+                {
+                    if (Stockpile.Resources[Weapon] > 0)
+                    {
+                        hasWeapon = true;
+                        villager.Inventory.AddItem(Weapon);
+                        break;
+                    }
+                    else
+    					villager.SetMode(Villager.Mode.Idle);
+                }
 					
 				yield return MoveToStockpile(stockpile);
 				
@@ -47,6 +56,7 @@ public class Soldier : VillagerAIMode
 				{
 					hasWeapon = true;
 					villager.Inventory.AddItem(Weapon);
+                    break;
 				}
 			}
 		}

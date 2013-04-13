@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Linq;
 
 //Contains all of the game logic for the day/night cycle.
 //Adjusts lighting, villager AI and gremlin spawning.
@@ -15,7 +16,22 @@ public class DayNightCycle : MonoBehaviour
 	public Gradient MoonColor = new Gradient();
 	
 	private float timeOffset = DayInSeconds * 0.1f;
-	
+
+	public static bool IsDaytime { get; private set; }
+
+    void Start()
+    {
+        IsDaytime = true;
+    }
+
+	void SetDaytime(bool isDaytime)
+	{
+		IsDaytime = isDaytime;
+
+		foreach (VillagerAIMode aiMode in GameObject.FindObjectsOfType(typeof(VillagerAIMode)).Cast<VillagerAIMode>())
+            aiMode.OnStateChange();
+	}
+
 	void Update()
 	{
 		float days = (Time.timeSinceLevelLoad + timeOffset) / DayInSeconds;
@@ -31,7 +47,7 @@ public class DayNightCycle : MonoBehaviour
 			wasDaytime = isDaytime;
 			light.shadows = isDaytime ? LightShadows.Soft : LightShadows.None;
 			Moon.shadows =  isDaytime ? LightShadows.None : LightShadows.Hard;
-			Villager.SetDaytime(isDaytime);
+			SetDaytime(isDaytime);
 		}
 	}
 	
