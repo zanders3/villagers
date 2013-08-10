@@ -7,11 +7,6 @@ public class BuildingDefinition
 {	
 	public bool CanAfford()
 	{
-		Debug.Log ("CanAfford: " + Prefab.BuildingType);
-		foreach (var resourceCost in GameSettings.BuildingCost[Prefab.BuildingType])
-			if (Stockpile.Resources[resourceCost.Key] < resourceCost.Value)
-				return false;
-		
 		return true;
 	}
 	
@@ -19,10 +14,7 @@ public class BuildingDefinition
 	{
 		if (!CanAfford())
 			return;
-		
-		foreach (var resourceCost in GameSettings.BuildingCost[Prefab.BuildingType])
-			Stockpile.WithdrawResource(resourceCost.Value, resourceCost.Key);
-		
+
 		GameObject.Instantiate(Prefab, new Vector3(tx, 0.0f, ty), Quaternion.identity);
 	}
 	
@@ -54,7 +46,7 @@ public class BuildMenu : MonoBehaviour
 			//mouseOverGUI = GUILayoutUtility.GetLastRect().Contains(Event.current.mousePosition);
         }
 		
-		string resources = string.Join("\n", Stockpile.Resources.Select(pair => pair.Key + ":\t" + pair.Value).ToArray());
+		string resources = Stockpile.GetResourceInfo();
 		GUI.Label(new Rect(10.0f, 10.0f, 300.0f, 200.0f), resources);
 		
 		switch (currentState)

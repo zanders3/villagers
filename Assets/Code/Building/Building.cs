@@ -37,10 +37,17 @@ public class Building : MonoBehaviour
 		private set;
 	}
 	
+    public bool IsDestroyed
+    {
+        get;
+        private set;
+    }
+
 	void Start()
 	{
 		Map.Instance.PlaceBuilding(BuildingType, Tx, Ty, Width, Height);
-		
+        IsAssigned.RegisterAssignment(gameObject);
+
 		//Town halls start off already built
 		if (BuildingType == Tile.TownHall)
 		{
@@ -55,14 +62,19 @@ public class Building : MonoBehaviour
 		}
 	}
 	
-	public void Damage(int amount)
+	public bool Damage(int amount)
 	{
-		health -= amount;
-		if (health <= 0)
-		{
-			health = 0;
-			Destroy(gameObject);
-		}
+        if (health > 0)
+        {
+            health -= amount;
+            if (health <= 0)
+            {
+                health = 0;
+                IsDestroyed = true;
+            }
+        }
+
+        return health > 0;
 	}
 	
 	public void Build()
@@ -78,7 +90,15 @@ public class Building : MonoBehaviour
 	
 	void Update()
 	{
-		if (!IsBuilt || transform.position.y != 0.0f)
+        if (IsDestroyed)
+        {
+            transform.position = new Vector3(transform.position.x, Mathf.Lerp(transform.position.y, -2.0f, Time.deltaTime), transform.position.z);
+            if (transform.position.y < -1.95f)
+            {
+                Map.Instance.ClearBuilding(this);
+            }
+        }
+		else if (!IsBuilt || transform.position.y > 0.01f)
 		{
 			float percentBuilt = (float)health / (float)TotalHealth;
 			transform.position = new Vector3(transform.position.x, Mathf.Lerp(transform.position.y, (percentBuilt - 1.0f) * 3.0f, Time.deltaTime), transform.position.z);

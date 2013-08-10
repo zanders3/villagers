@@ -1,0 +1,44 @@
+#Villager
+PrioritySelector:Villager
+	SequenceSelector:Sawmill
+		IsAssigned:Sawmill
+		PrioritySelector:Work
+			SequenceSelector:Gather
+				IsHolding:None
+				SelectNearest:Tree,2
+				PathToSelection
+				GatherSelection
+				SetHolding:Wood
+			SequenceSelector:Produce
+				IsHolding:Wood
+				SelectAssigned
+				PathToSelection
+				SetHolding:Plank
+			SequenceSelector:Place
+				IsHolding:Plank
+				SelectNearest:Stockpile,1
+				PathToSelection
+				PlaceResource:Plank
+				SetHolding:None
+			SequenceSelector:Idle
+				SelectAssigned
+				PathToSelection
+				LoopSelector:Idle
+					SeekSelection
+	SequenceSelector:Idle
+		SelectNearest:Campfire,1
+		PathToSelection
+		LoopSelector:Idle
+			SeekSelection
+#Soldier
+SequenceSelector:Idle
+		SelectNearest:Campfire,1
+		PathToSelection
+		LoopSelector:Idle
+			SeekSelection
+#Gremlin
+SequenceSelector:Idle
+		SelectNearest:Campfire,1
+		PathToSelection
+		LoopSelector:Idle
+			SeekSelection

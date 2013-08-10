@@ -3,14 +3,7 @@ using System.Collections;
 
 public class Resource : MonoBehaviour 
 {
-	public ResourceType Type = ResourceType.Wood;
-	
-	private int resourceAmount;
-	
-	void Start()
-	{
-		resourceAmount = GameSettings.ResourceSettings[Type].ResourcePerTile;
-	}
+	private int resourceAmount = 5;
 	
 	public bool Gather()
 	{

@@ -151,7 +151,7 @@ public class Map : MonoBehaviour
 				tiles[tx + x, ty + y] = tile;
 		
 		MapVersion++;
-	}
+    }
 	
 	public bool HasNeighbour(int tx, int ty, Tile tile)
 	{
@@ -190,7 +190,21 @@ public class Map : MonoBehaviour
 		int tx = Mathf.RoundToInt(resource.transform.position.x), ty = Mathf.RoundToInt(resource.transform.position.z);
 		tiles[tx,ty] = Tile.Ground;
 		resources[tx, ty] = null;
+
+        MapVersion++;
 		
 		Destroy(resource.gameObject);
 	}
+
+    public void ClearBuilding(Building building)
+    {
+        if (building.BuildingType == Tile.TownHall)
+            Debug.Log("Game over!");
+        else
+        {
+            tiles[building.Tx, building.Ty] = Tile.Ground;
+            MapVersion++;
+            Destroy(building.gameObject);
+        }
+    }
 }

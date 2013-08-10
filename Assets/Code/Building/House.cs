@@ -14,7 +14,7 @@ public class House : MonoBehaviour
 	
 	void Destroy()
 	{
-		Stockpile.Resources[ResourceType.VillagerLimit] -= VillagersPerHouse;
+        Stockpile.RemoveResource("Villagers", VillagersPerHouse);
 	}
 	
 	void Update()
@@ -24,7 +24,7 @@ public class House : MonoBehaviour
 		else if (!isBuilt)
 		{
 			Debug.Log("Add pop count");
-			Stockpile.Resources[ResourceType.VillagerLimit] += VillagersPerHouse;
+            Stockpile.AddResource("Villagers", VillagersPerHouse);
 			
 			//Town halls creates the first villager instantly!
 			if (GetComponent<Building>().BuildingType == Tile.TownHall)
@@ -62,7 +62,6 @@ public class House : MonoBehaviour
 		
 		numVillagers++;
 		
-		GameObject villager = (GameObject)GameObject.Instantiate(Resources.Load("Villager"), new Vector3(transform.position.x, 0.0f, transform.position.z), Quaternion.identity);
-		villager.GetComponent<Villager>().Home = this;
+        AILoader.CreateCharacter("Villager", "Villager.Production", new Vector3(transform.position.x, 0.0f, transform.position.z));
 	}
 }

@@ -10,6 +10,11 @@ public abstract class Character : MonoBehaviour
 	
 	protected abstract Vector2 Steer();
 	
+    void Start()
+    {
+        IsAssigned.RegisterAssignment(gameObject);
+    }
+
 	protected virtual void Update()
 	{
 		Vector2 steeringForce = Vector2.ClampMagnitude(Steer(), MaxForce);

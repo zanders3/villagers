@@ -27,9 +27,6 @@ public class DayNightCycle : MonoBehaviour
 	void SetDaytime(bool isDaytime)
 	{
 		IsDaytime = isDaytime;
-
-		foreach (VillagerAIMode aiMode in GameObject.FindObjectsOfType(typeof(VillagerAIMode)).Cast<VillagerAIMode>())
-            aiMode.OnStateChange();
 	}
 
 	void Update()

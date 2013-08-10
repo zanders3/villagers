@@ -30,8 +30,6 @@ public class Mayor : Character
 		{
 			if (GetComponent<BuildMenu>().OnMouseDown())
 				return;
-			if (GetComponent<MayorCommands>().OnMouseDown())
-				return;
 		}
 	}
 }
