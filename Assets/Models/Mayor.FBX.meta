@@ -1,0 +1,472 @@
+fileFormatVersion: 2
+guid: 68ccf311d7bca47cabec7bc516769c0e
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: Mayor
+    100002: Mayor 1
+    100004: //RootNode
+    100006: MayorHat1
+    100008: MayorHat2
+    100010: MayorHead
+    100012: MayorLCalf
+    100014: MayorLCollarbone
+    100016: MayorLFoot
+    100018: MayorLForearm
+    100020: MayorLPalm
+    100022: MayorLPlatform
+    100024: MayorLThigh
+    100026: MayorLUpperarm
+    100028: MayorNeck1
+    100030: MayorNeck2
+    100032: MayorPelvis
+    100034: MayorRCalf
+    100036: MayorRCollarbone
+    100038: MayorRFoot
+    100040: MayorRForearm
+    100042: MayorRibcage
+    100044: MayorRPalm
+    100046: MayorRPlatform
+    100048: MayorRThigh
+    100050: MayorRUpperarm
+    100052: MayorSpine1
+    100054: MayorSpine2
+    100056: MayorSpine3
+    100058: MayorSpine4
+    400000: Mayor
+    400002: Mayor 1
+    400004: //RootNode
+    400006: MayorHat1
+    400008: MayorHat2
+    400010: MayorHead
+    400012: MayorLCalf
+    400014: MayorLCollarbone
+    400016: MayorLFoot
+    400018: MayorLForearm
+    400020: MayorLPalm
+    400022: MayorLPlatform
+    400024: MayorLThigh
+    400026: MayorLUpperarm
+    400028: MayorNeck1
+    400030: MayorNeck2
+    400032: MayorPelvis
+    400034: MayorRCalf
+    400036: MayorRCollarbone
+    400038: MayorRFoot
+    400040: MayorRForearm
+    400042: MayorRibcage
+    400044: MayorRPalm
+    400046: MayorRPlatform
+    400048: MayorRThigh
+    400050: MayorRUpperarm
+    400052: MayorSpine1
+    400054: MayorSpine2
+    400056: MayorSpine3
+    400058: MayorSpine4
+    4300000: Mayor
+    7400000: Idle
+    9500000: //RootNode
+    13700000: Mayor
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations:
+    - name: Idle
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      transformMask: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .0500000007
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human:
+    - boneName: MayorPelvis
+      humanName: Hips
+      limit:
+        min: {x: -40, y: -40, z: -40}
+        max: {x: 40, y: 40, z: 40}
+        value: {x: .183329687, y: 0, z: .0916648433}
+        preQ: {x: -.440142542, y: -.553420186, z: .440140367, w: .553422987}
+        postQ: {x: -2.44379044e-06, y: 3.12924385e-07, z: .993363917, w: .115013316}
+        length: .229162186
+        modified: 1
+    - boneName: MayorLThigh
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: -60.0000038, y: -60.0000038, z: -90}
+        max: {x: 60.0000038, y: 60.0000038, z: 50}
+        value: {x: .233364835, y: 0, z: .116682418}
+        preQ: {x: .945914924, y: .324316531, z: -.00753384968, w: .00258303829}
+        postQ: {x: 1.1920929e-07, y: .00330767059, z: .999994457, w: 0}
+        length: .291706115
+        modified: 1
+    - boneName: MayorRThigh
+      humanName: RightUpperLeg
+      limit:
+        min: {x: -60.0000038, y: -60.0000038, z: -90}
+        max: {x: 60.0000038, y: 60.0000038, z: 50}
+        value: {x: .233364865, y: 0, z: .116682433}
+        preQ: {x: .945914626, y: .324314922, z: .00764070638, w: -.00261974148}
+        postQ: {x: 7.45058131e-08, y: -.00327821122, z: .999994576, w: -4.47034907e-08}
+        length: .291706145
+        modified: 1
+    - boneName: MayorLCalf
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: -90, y: 0, z: -80}
+        max: {x: 90, y: 0, z: 80}
+        value: {x: .212193742, y: 0, z: .106096871}
+        preQ: {x: -.000441323704, y: -.0116870701, z: -.568869352, w: .822344661}
+        postQ: {x: -0, y: -.00703176856, z: -.999975204, w: 2.98023224e-08}
+        length: .265242249
+        modified: 1
+    - boneName: MayorRCalf
+      humanName: RightLowerLeg
+      limit:
+        min: {x: -90, y: 0, z: -80}
+        max: {x: 90, y: 0, z: 80}
+        value: {x: .212193787, y: 0, z: .106096894}
+        preQ: {x: .000286072755, y: .011667097, z: -.568871915, w: .82234323}
+        postQ: {x: 5.96046412e-08, y: .00706173433, z: -.999975026, w: -4.470348e-08}
+        length: .265242308
+        modified: 1
+    - boneName: MayorLFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: -30.0000019, z: -50}
+        max: {x: 0, y: 30.0000019, z: 50}
+        value: {x: .0283597521, y: 0, z: .0141798761}
+        preQ: {x: .00526058674, y: -.00611913204, z: -.980563879, w: -.196033821}
+        postQ: {x: -1.49011612e-08, y: -1.2293458e-07, z: -.781773388, w: .623562574}
+        length: .0354496986
+        modified: 1
+    - boneName: MayorRFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: -30.0000019, z: -50}
+        max: {x: 0, y: 30.0000019, z: 50}
+        value: {x: .0283597037, y: 0, z: .0141798519}
+        preQ: {x: -.00515159965, y: .00617134571, z: -.980564356, w: -.196032688}
+        postQ: {x: -7.82310892e-08, y: -8.94069672e-08, z: -.781773448, w: .623562396}
+        length: .035449639
+        modified: 1
+    - boneName: MayorSpine2
+      humanName: Spine
+      limit:
+        min: {x: -40, y: -40, z: -40}
+        max: {x: 40, y: 40, z: 40}
+        value: {x: .128048524, y: 0, z: .0640242621}
+        preQ: {x: 2.02655769e-06, y: -9.17911439e-06, z: .985607684, w: -.169047922}
+        postQ: {x: 2.98023206e-08, y: -6.35534452e-05, z: .99999994, w: 4.470348e-08}
+        length: .160060719
+        modified: 1
+    - boneName: MayorSpine3
+      humanName: Chest
+      limit:
+        min: {x: -40, y: -40, z: -40}
+        max: {x: 40, y: 40, z: 40}
+        value: {x: .322771043, y: 0, z: .161385521}
+        preQ: {x: 9.92417245e-06, y: -6.29126953e-05, z: .999239981, w: -.0389785282}
+        postQ: {x: -4.00841236e-06, y: -.000133886933, z: .998966515, w: .0454512388}
+        length: .40346393
+        modified: 1
+    - boneName: MayorNeck1
+      humanName: Neck
+      limit:
+        min: {x: -40, y: -40, z: -40}
+        max: {x: 40, y: 40, z: 40}
+        value: {x: .172917888, y: 0, z: .0864589438}
+        preQ: {x: -2.98023224e-08, y: .000218674555, z: -.99999994, w: -4.47034871e-08}
+        postQ: {x: -1.49011612e-08, y: .000218644753, z: -.99999994, w: -4.47034871e-08}
+        length: .216147423
+        modified: 1
+    - boneName: MayorHead
+      humanName: Head
+      limit:
+        min: {x: -40, y: -40, z: -40}
+        max: {x: 40, y: 40, z: 40}
+        value: {x: .172917888, y: 0, z: .0864589438}
+        preQ: {x: 4.470348e-08, y: -.000218570218, z: .99999994, w: 1.49011598e-07}
+        postQ: {x: 2.98023224e-08, y: -.000218540445, z: .99999994, w: 1.49011612e-07}
+        length: .216147423
+        modified: 1
+    - boneName: MayorLCollarbone
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: -15.000001, z: -15.000001}
+        max: {x: 0, y: 15.000001, z: 30.0000019}
+        value: {x: .223246023, y: 0, z: .111623012}
+        preQ: {x: .495037824, y: .500632882, z: .504916012, w: -.49936375}
+        postQ: {x: -7.4505806e-08, y: .707063973, z: .707149506, w: 7.37890815e-08}
+        length: .279057592
+        modified: 1
+    - boneName: MayorRCollarbone
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: -15.000001, z: -15.000001}
+        max: {x: 0, y: 15.000001, z: 30.0000019}
+        value: {x: .223246112, y: 0, z: .111623056}
+        preQ: {x: -.499366134, y: .504913568, z: .500635326, w: .49503538}
+        postQ: {x: 8.05011879e-08, y: .707146049, z: .70706743, w: -7.9628073e-08}
+        length: .279057711
+        modified: 1
+    - boneName: MayorLUpperarm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: -90, y: -100, z: -60.0000038}
+        max: {x: 90, y: 100, z: 100}
+        value: {x: .209022105, y: 0, z: .104511052}
+        preQ: {x: .423040569, y: .63619107, z: .641188502, w: -.0719357431}
+        postQ: {x: 5.40167058e-08, y: .687968254, z: .725740671, w: -5.66074156e-08}
+        length: .261277705
+        modified: 1
+    - boneName: MayorRUpperarm
+      humanName: RightUpperArm
+      limit:
+        min: {x: -90, y: -100, z: -60.0000038}
+        max: {x: 90, y: 100, z: 100}
+        value: {x: .209022224, y: 0, z: .104511112}
+        preQ: {x: -.0717941001, y: .641310334, z: .635993183, w: .42317754}
+        postQ: {x: -5.02914155e-08, y: .725843787, z: .687859535, w: 4.74683475e-08}
+        length: .261277854
+        modified: 1
+    - boneName: MayorLForearm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: -90, y: 0, z: -80}
+        max: {x: 90, y: 0, z: 80}
+        value: {x: .295711011, y: 0, z: .147855505}
+        preQ: {x: .633965909, y: .770675421, z: .0540304817, w: -.0350315236}
+        postQ: {x: 1.86264515e-09, y: .999657691, z: .0261616111, w: 5.40167093e-08}
+        length: .36963889
+        modified: 1
+    - boneName: MayorRForearm
+      humanName: RightLowerArm
+      limit:
+        min: {x: -90, y: 0, z: -80}
+        max: {x: 90, y: 0, z: 80}
+        value: {x: .295711219, y: 0, z: .14785561}
+        preQ: {x: .0351239368, y: -.0541427359, z: -.770660698, w: -.633969069}
+        postQ: {x: 3.35276091e-08, y: -.0263059121, z: -.999653876, w: 0}
+        length: .369639158
+        modified: 1
+    - boneName: MayorLPalm
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: -40, z: -80}
+        max: {x: 0, y: 40, z: 80}
+        value: {x: .147855505, y: 0, z: .0739277527}
+        preQ: {x: -3.91155517e-08, y: .687874794, z: .725829244, w: 3.62738355e-08}
+        postQ: {x: -.0164530762, y: .0861883163, z: .996120751, w: .00665092375}
+        length: .184819445
+        modified: 1
+    - boneName: MayorRPalm
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: -40, z: -80}
+        max: {x: 0, y: 40, z: 80}
+        value: {x: .14785561, y: 0, z: .0739278048}
+        preQ: {x: -2.60770356e-08, y: .725939631, z: .687758386, w: 2.42143905e-08}
+        postQ: {x: .00664818287, y: .99613452, z: .0860286951, w: -.0164541379}
+        length: .184819579
+        modified: 1
+    - boneName: MayorHat2
+      humanName: RightEye
+      limit:
+        min: {x: 0, y: -20, z: -10}
+        max: {x: 0, y: 20, z: 15.000001}
+        value: {x: .0799999759, y: 0, z: .0399999879}
+        preQ: {x: .7377038, y: .675124466, z: .000161230593, w: -.00014758113}
+        postQ: {x: .737703741, y: .675124466, z: .000161230579, w: -.000147581115}
+        length: .100000001
+        modified: 1
+    skeleton:
+    - name: Mayor
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: MayorPelvis
+      position: {x: .00359778223, y: .525432825, z: -.0415478982}
+      rotation: {x: .499126911, y: -.500871539, z: -.499126911, w: .500871539}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: MayorLThigh
+      position: {x: -.0433393493, y: .0913526937, z: .161835}
+      rotation: {x: -.0684235096, y: .997619033, z: -.00384453731, w: -.00771930115}
+      scale: {x: 1, y: .999999881, z: 1}
+      transformModified: 1
+    - name: MayorLCalf
+      position: {x: -.291706175, y: 1.19209291e-08, z: 3.57627883e-08}
+      rotation: {x: .000439717463, y: -.00112956832, z: .264370471, w: .964420378}
+      scale: {x: 1.00000012, y: 1.00000024, z: 1.00000012}
+      transformModified: 1
+    - name: MayorLFoot
+      position: {x: -.265242249, y: 5.96046457e-09, z: 1.19209291e-08}
+      rotation: {x: -.00150334218, y: -.00792830158, z: -.764697134, w: .644339442}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: MayorRThigh
+      position: {x: -.0433393009, y: .0913526788, z: -.161835}
+      rotation: {x: -.0684222654, y: .997618318, z: .00382290757, w: .00783423427}
+      scale: {x: 1, y: .999999821, z: 1}
+      transformModified: 1
+    - name: MayorRCalf
+      position: {x: -.291706204, y: 1.19209291e-08, z: -2.38418583e-08}
+      rotation: {x: -.000497980509, y: .00135163148, z: .264369607, w: .964420319}
+      scale: {x: 1.00000024, y: 1.00000012, z: 1.00000012}
+      transformModified: 1
+    - name: MayorRFoot
+      position: {x: -.265242249, y: 0, z: 0}
+      rotation: {x: .00161228422, y: .00787549093, z: -.76469636, w: .644340515}
+      scale: {x: 1.00000024, y: .999999881, z: .99999994}
+      transformModified: 1
+    - name: MayorSpine1
+      position: {x: -.0436521061, y: -.00333984499, z: -8.19563883e-09}
+      rotation: {x: -9.26130542e-06, y: -1.61762387e-06, z: -.1499255, w: .98869729}
+      scale: {x: 1.00000036, y: 1.00000036, z: 1}
+      transformModified: 1
+    - name: MayorSpine2
+      position: {x: -.187894106, y: 0, z: 0}
+      rotation: {x: -5.34325518e-05, y: -8.79783966e-06, z: .169048026, w: .985607803}
+      scale: {x: 1.00000024, y: 1.00000024, z: 1}
+      transformModified: 1
+    - name: MayorSpine3
+      position: {x: -.160060644, y: 0, z: 3.72529035e-10}
+      rotation: {x: -7.07009895e-05, y: 5.883825e-06, z: .0843549743, w: .996435702}
+      scale: {x: .99999994, y: 1.00000012, z: 1}
+      transformModified: 1
+    - name: MayorSpine4
+      position: {x: -.17200537, y: 0, z: 0}
+      rotation: {x: -6.97424693e-05, y: 8.4904741e-06, z: -.0860561207, w: .996290267}
+      scale: {x: .999999046, y: .999998987, z: .999999881}
+      transformModified: 1
+    - name: MayorRibcage
+      position: {x: -.231783018, y: 0, z: 3.72529035e-10}
+      rotation: {x: -1.39736821e-05, y: 5.78811887e-06, z: -.0194066279, w: .99981159}
+      scale: {x: 1.00000036, y: 1.00000036, z: 1.00000024}
+      transformModified: 1
+    - name: MayorLCollarbone
+      position: {x: .0130163198, y: .0428209193, z: .022581283}
+      rotation: {x: .00298560108, y: .703147948, z: .00310145854, w: .711030543}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: MayorLUpperarm
+      position: {x: -.279057741, y: 2.79396783e-10, z: 0}
+      rotation: {x: -.026569413, y: .0202790909, z: -.00398236001, w: .999433279}
+      scale: {x: 1, y: 1.00000012, z: 1.00000012}
+      transformModified: 1
+    - name: MayorLForearm
+      position: {x: -.261277765, y: 0, z: 0}
+      rotation: {x: 6.89457229e-05, y: .0228886046, z: .010558025, w: .999682248}
+      scale: {x: .99999994, y: .999999642, z: .99999994}
+      transformModified: 1
+    - name: MayorLPalm
+      position: {x: -.369639069, y: -7.45058071e-10, z: 0}
+      rotation: {x: -.622648358, y: .016517086, z: -.0064902571, w: .782300413}
+      scale: {x: .99999994, y: 1, z: 1.00000024}
+      transformModified: 1
+    - name: MayorNeck1
+      position: {x: -.000758457172, y: -.00333984196, z: -6.33299369e-09}
+      rotation: {x: -2.90944231e-11, y: 1.82766016e-08, z: 7.98650035e-12, w: .99999994}
+      scale: {x: 1, y: 1.00000012, z: .99999994}
+      transformModified: 1
+    - name: MayorNeck2
+      position: {x: -.114344023, y: -2.98023228e-09, z: 0}
+      rotation: {x: 5.71708594e-17, y: 0, z: 0, w: .99999994}
+      scale: {x: 1, y: .999999881, z: 1.00000012}
+      transformModified: 1
+    - name: MayorHead
+      position: {x: -.1018034, y: 2.98023228e-09, z: 0}
+      rotation: {x: -3.17798887e-24, y: -1.11815536e-10, z: -2.84217077e-14, w: .99999994}
+      scale: {x: 1, y: .99999994, z: .99999994}
+      transformModified: 1
+    - name: MayorHat1
+      position: {x: -.364206314, y: .0756489709, z: -1.11758709e-08}
+      rotation: {x: 2.86073387e-10, y: 1.30909103e-11, z: .0442501046, w: .999020457}
+      scale: {x: 1, y: 1, z: 1.00000012}
+      transformModified: 1
+    - name: MayorHat2
+      position: {x: -.312093735, y: 1.19209291e-08, z: 0}
+      rotation: {x: -2.65544098e-09, y: -2.32852155e-08, z: 3.72529008e-09, w: .99999994}
+      scale: {x: 1, y: 1.00000012, z: 1.00000012}
+      transformModified: 1
+    - name: MayorRCollarbone
+      position: {x: .0130163198, y: .0428209193, z: -.0225812811}
+      rotation: {x: -.00298564415, y: -.703147888, z: .00310145435, w: .711030602}
+      scale: {x: 1, y: .99999994, z: 1}
+      transformModified: 1
+    - name: MayorRUpperarm
+      position: {x: -.279057741, y: 9.31322588e-11, z: 9.53674331e-08}
+      rotation: {x: .0267107971, y: -.0202856939, z: -.00419552578, w: .999428511}
+      scale: {x: 1, y: 1.00000012, z: 1}
+      transformModified: 1
+    - name: MayorRForearm
+      position: {x: -.261277884, y: 0, z: 0}
+      rotation: {x: -6.86049243e-05, y: -.0228878912, z: .0105538871, w: .999682248}
+      scale: {x: 1.00000012, y: 1, z: 1.00000012}
+      transformModified: 1
+    - name: MayorRPalm
+      position: {x: -.369639128, y: -1.49011614e-09, z: 0}
+      rotation: {x: .622648239, y: -.0165170804, z: -.00649026595, w: .782300532}
+      scale: {x: .999999881, y: .999999881, z: 1}
+      transformModified: 1
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 3
+  userData: 
