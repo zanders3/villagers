@@ -1,5 +1,10 @@
 #Villager
 PrioritySelector:Villager
+	SequenceSelector:Coward
+		IsNearTo:Gremlin,5
+		SelectNearest:Gremlin,1
+		FleeSelection
+		Wait:5
 	SequenceSelector:Sawmill
 		IsAssigned:Sawmill
 		PrioritySelector:Work
@@ -31,14 +36,25 @@ PrioritySelector:Villager
 		LoopSelector:Idle
 			SeekSelection
 #Soldier
-SequenceSelector:Idle
+PrioritySelector:Soldier
+	SequenceSelector:StayNearVillage
+		IsFarFrom:TownHall Sawmill House,8
+		SelectNearest:TownHall Sawmill House,1
+		PathToSelection
+	SequenceSelector:Attack
+		SelectNearest:Gremlin,4
+		PathToSelection
+		LoopSelector:Fight
+			SeekSelection
+	SequenceSelector:Idle
 		SelectNearest:Campfire,1
 		PathToSelection
 		LoopSelector:Idle
 			SeekSelection
 #Gremlin
-SequenceSelector:Idle
-		SelectNearest:Campfire,1
+PrioritySelector:Gremlin
+	SequenceSelector:AttackBuilding
+		SelectNearest:TownHall Sawmill House,3
 		PathToSelection
-		LoopSelector:Idle
+		LoopSelector:Attack
 			SeekSelection

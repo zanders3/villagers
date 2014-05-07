@@ -18,7 +18,7 @@ public class IsAssigned : AINode
 
     public override AINodeState Run(AICharacter character)
     {
-        if (character.CurrentAssignment == null && pendingAssignments.ContainsKey(desiredAssignment) && pendingAssignments[desiredAssignment].Count > 0)
+        if (character.CurrentAssignment == null && CanRegister(desiredAssignment))
             character.CurrentAssignment = pendingAssignments[desiredAssignment].Pop();
 
         if (character.CurrentAssignment != null && character.CurrentAssignment.tag == desiredAssignment)
@@ -27,13 +27,22 @@ public class IsAssigned : AINode
             return AINodeState.Failed;
     }
 
-    public static void RegisterAssignment(GameObject obj)
+    public static void RegisterAssignment(GameObject obj, string tag, int numToAssign)
     {
-        Debug.Log("RegisterAssignment: " + obj.tag);
+        Debug.Log("RegisterAssignment: " + tag);
 
-        if (pendingAssignments.ContainsKey(obj.tag))
-            pendingAssignments[obj.tag].Push(obj);
-        else
-            pendingAssignments.Add(obj.tag, new Stack<GameObject>(new GameObject[] { obj }));
+        Stack<GameObject> assignments;
+        if (!pendingAssignments.TryGetValue(tag, out assignments))
+        {
+            pendingAssignments.Add(tag, assignments = new Stack<GameObject>());
+        }
+
+        for (int i = 0; i<numToAssign; i++)
+            assignments.Push(obj);
+    }
+
+    public static bool CanRegister(string tag)
+    {
+        return pendingAssignments.ContainsKey(tag) && pendingAssignments[tag].Count > 0;
     }
 }

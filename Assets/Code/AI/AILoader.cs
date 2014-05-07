@@ -83,7 +83,7 @@ public static class AILoader
         AINode behaviourTree = null;
         for (int i = 0; i<charactersFile.Length; i++)
         {
-            if (charactersFile[i].Length > 0 && charactersFile[i][0] == '#')
+            if (charactersFile[i].Length > 0 && charactersFile[i].StartsWith("#" + name))
             {
                 i++;
                 behaviourTree = Parse(ref i);
@@ -97,12 +97,12 @@ public static class AILoader
         return behaviourTree;
     }
 
-    public static void CreateCharacter(string prefabName, string name, Vector3 position)
+    public static void CreateCharacter(string name, string aiName, Vector3 position)
     {
-        GameObject obj = (GameObject)GameObject.Instantiate((GameObject)Resources.Load(prefabName), position, Quaternion.identity);
+        GameObject obj = (GameObject)GameObject.Instantiate((GameObject)Resources.Load(name), position, Quaternion.identity);
 
         AICharacter character = obj.GetComponent<AICharacter>() ?? obj.AddComponent<AICharacter>();
-        character.SetTree(ParseCharacterTree(name));
+        character.SetTree(ParseCharacterTree(aiName));
     }
 }
 

@@ -11,7 +11,7 @@ public class Resource : MonoBehaviour
 			return false;
 		
 		if (animation != null)
-			animation.Play(AnimationPlayMode.Mix);
+			animation.Play(PlayMode.StopSameLayer);
 		
 		resourceAmount--;
 		if (resourceAmount <= 0)

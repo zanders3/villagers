@@ -9,7 +9,7 @@ public class SelectAssigned : AINode
     {
         if (character.CurrentAssignment == null)
             return AINodeState.Failed;
-        
+
         character.CurrentSelection = character.CurrentAssignment;
         return AINodeState.Succeeded;
     }

@@ -20,7 +20,6 @@ public class AICharacter : Character
     /// Seek toward the specified position in the next Update tick.
     /// </summary>
     /// <param name="position">Position to seek towards</param>
-    /// <returns>Distance from target position</returns>
     public float Seek(Vector3 position)
     {
         Vector3 direction = position - transform.position;
@@ -30,6 +29,19 @@ public class AICharacter : Character
         steerForce += desiredVelocity * MaxForce;
 
         return direction.magnitude;
+    }
+
+    /// <summary>
+    /// Flee from the specified position in the next Update tick.
+    /// </summary>
+    /// <param name="position">Position to flee from</param>
+    public void Flee(Vector3 position)
+    {
+        Vector3 direction = transform.position - position;
+        direction.y = 0.0f;
+        
+        Vector2 desiredVelocity = (new Vector2(direction.x, direction.z) * MaxSpeed) - (velocity * 0.4f);
+        steerForce += desiredVelocity * MaxForce;
     }
 
     /// <summary>

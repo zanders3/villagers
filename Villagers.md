@@ -1,8 +1,8 @@
 # Villagers
 
-Defend the Villagers from an enslaught of evil!
+Defend the Villagers from an enslaught of evil.
 
-A tower defence game with a town economy producing those towers/units
+A tower defence game with a town economy producing those defensive buildings/towers.
 
 Environment is a 2D, Flat Grid.
 
@@ -17,8 +17,11 @@ Villagers gather here if they have nothing to do.
 - House (max 6 = max 12 villagers)
 Creates 2 villagers per house. Villagers go home here at nightfall.
 
-- Stone/Wood Wall/Gate
+- Stone/Wood Wall
 Defensive shenanigans that baddies can smash.
+
+- Gate
+Closes automatically at night.
 
 - Stockpile
 Stores a pile of items. One kind of item per stockpile square. Items are wood, stone, ore, weapons, etc.
@@ -27,17 +30,27 @@ Stores a pile of items. One kind of item per stockpile square. Items are wood, s
 	- Weapons are displayed in weapon racks. Max 6 weapons.
 	- Iron is displayed as ingots, stacked.
 
-- Poleturner
-2 Wood => Pike
+- Blacksmith
+2 Stone => Sword
 
 - Fletcher
 2 Wood => Bow
 
-- Tower
-Archer villagers try to assign themselves to towers. Failing that they follow the mayor.
+- Guard Post (costs 3 swords, some wood)
+Villagers assign themselves to this post, max 3 villagers per post
 
-- Guard Post
-Soldiers try to assign themselves to guard posts. Failing that they follow the mayor.
+- Archery Tower (costs 3 bows, some stone)
+Villagers assign themselves to this post, max 3 villagers per post
+
+### Villagers
+
+- Job types
+	- Idle
+	- Woodcutter
+	- Mason
+	- Blacksmith
+	- Swordsman
+	- Archer
 
 ### Scenery
 - Tree
@@ -58,31 +71,9 @@ An unassailable cliff of impassibility.
 
 ### Mayor
 
-- On iPad: Zelda Phantom Hourglass controls!!
-
-- WASD Keys move mayor around. The camera follows the mayor at a fixed distance and angle.
-- Mouse clicks activate things:
-	* Clicking on a resource makes a following villager gather that resource.
-	* Clicking on a building with villagers following:
-		+ if (damaged or not built)
-			+ villager is a builder TODOOO
-		+ else if (production building)
-			+ villager is a producer
-		+ else if (house with villagers inside)
-			+ villager comes out of house and follows mayor TODOOO
-	* Clicking on a resource on the stockpile with villagers following:
-		+ Melee Weapon
-			+ Villager becomes a soldier
-		+ Ranged Weapon
-			+ Villager becomes an archer
-	* Clicking and dragging on the ground paints villager circular selection.
-		+ Dismissing villagers causes them to return to their previous task.
-- Building Construction a button on screen.
-	* Opens up and allows you to pick a building. Unavailable buildings are grayed out.
-	* Build button turns into a cancel button.
-	* Unavailable villagers automatically tap the building out of the ground. 
-	* It takes the buildings HP number of taps to construct.
-	* Under construction blueprints are just a flat transparent blue box.
+- Move with WASD
+- Place buildings nearby yourself.
+- Direct the villagers
 
 Day/Night
 - Day lasts 5 minutes, and can be skipped by the mayor by using the town hall.
@@ -97,30 +88,3 @@ Map Tile Types
 4 Town Hall
 5 Bridge
 6 Rock
-
-## Extension Ideas:
-
-### Buildings
-
-=== Next Level Technology ===
-Gated by the foundry technology, since you need it to produce steel.
-
-Additional Resource: Ore
-
-- Foundry
-Ore => Steel
-
-- Blacksmith
-Steel => Sword
-
-- Armoury
-Steel => Armour
-
-- Steel Wall/Gate
-
-- Improved Fletcher
-Steel => Crossbow
-
-- Cannon Tower
-Contains a small cannon which requires 2 villagers to operate.
-

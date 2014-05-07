@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Linq;
 
 //Contains all of the game logic for the day/night cycle.
-//Adjusts lighting, villager AI and gremlin spawning.
 public class DayNightCycle : MonoBehaviour
 {
 	public const float DayInSeconds = 5.0f * 60.0f;//5 minutes per day

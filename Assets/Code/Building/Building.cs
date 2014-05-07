@@ -7,6 +7,7 @@ public class Building : MonoBehaviour
 	
 	public int TotalHealth = 5;
 	public int Width = 1, Height = 1;
+    public int NumToAssign = 1;
 	
 	private int health = 0;
 	
@@ -46,7 +47,7 @@ public class Building : MonoBehaviour
 	void Start()
 	{
 		Map.Instance.PlaceBuilding(BuildingType, Tx, Ty, Width, Height);
-        IsAssigned.RegisterAssignment(gameObject);
+        IsAssigned.RegisterAssignment(gameObject, gameObject.tag, NumToAssign);
 
 		//Town halls start off already built
 		if (BuildingType == Tile.TownHall)

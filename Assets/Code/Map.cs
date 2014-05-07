@@ -22,7 +22,6 @@ public class Map : MonoBehaviour
 	public static Map Instance = null;
 	
 	public int Width, Height;
-	public TextAsset Level;
 	
 	private Tile[,] tiles;
 	private Resource[,] resources;
@@ -53,13 +52,12 @@ public class Map : MonoBehaviour
 						Gizmos.DrawCube(new Vector3(x, 0.0f, y), new Vector3(1.0f, 0.01f, 1.0f));
 	}
 	
-	void Start()
+	void Awake()
 	{
 		Instance = this;
-		LoadLevel(Level.text);
 	}
 	
-	private void LoadLevel(string levelFile)
+	public void LoadLevel(string levelFile)
 	{
 		string[] lines = levelFile.Split('\n');
 		Height = lines.Length;

@@ -12,7 +12,7 @@ public abstract class Character : MonoBehaviour
 	
     void Start()
     {
-        IsAssigned.RegisterAssignment(gameObject);
+        IsAssigned.RegisterAssignment(gameObject, gameObject.tag, 1);
     }
 
 	protected virtual void Update()

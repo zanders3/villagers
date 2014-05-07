@@ -4,30 +4,38 @@ using System.Linq;
 
 /// <summary>
 /// Selects the nearest N game objects with a specific tag near the character.
+/// You can select multiple tags by separating them with a space.
 /// </summary>
 public class SelectNearest : AINode
 {
     private string tag;
+    private string[] tags;
     private int nearestToRandomlySelect;
     
     public SelectNearest(string tag, string nearestToRandomlySelect)
     {
         this.tag = tag;
+        this.tags = tag.Split(' ');
         this.nearestToRandomlySelect = System.Convert.ToInt32(nearestToRandomlySelect);
     }
     
-    protected virtual GameObject SelectNearestTarget(List<GameObject> targets)
+    protected virtual AINodeState SelectNearestTarget(AICharacter character, List<GameObject> targets)
     {
-        if (targets.Count == 0)
-            return null;
-        
         int index = UnityEngine.Random.Range(0, System.Math.Min(nearestToRandomlySelect, targets.Count));
-        return targets[index];
+        character.CurrentSelection = targets[index];
+
+        if (character.CurrentSelection == null)
+            Debug.Log("Selection failed");
+        
+        return character.CurrentSelection != null ? AINodeState.Succeeded : AINodeState.Failed;
     }
     
     public override AINodeState Run(AICharacter character)
     {
-        List<GameObject> targets = GameObject.FindGameObjectsWithTag(tag).ToList();
+        List<GameObject> targets = new List<GameObject>();
+        for (int i = 0; i < tags.Length; i++)
+            targets.AddRange(GameObject.FindGameObjectsWithTag(tags[i]));
+
         targets.Sort((a, b) =>
         {
             float aDist2 = (a.transform.position - character.transform.position).sqrMagnitude;
@@ -35,13 +43,10 @@ public class SelectNearest : AINode
             return aDist2.CompareTo(bDist2);
         });
 
-        character.CurrentSelection = null;
-        character.CurrentSelection = SelectNearestTarget(targets);
+        if (targets.Count == 0)
+            return AINodeState.Failed;
 
-        if (character.CurrentSelection == null)
-            Debug.Log("Selection failed");
-
-        return character.CurrentSelection != null ? AINodeState.Succeeded : AINodeState.Failed;
+        return SelectNearestTarget(character, targets);
     }
     
     public override string ToString()

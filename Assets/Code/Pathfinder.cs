@@ -27,7 +27,7 @@ public class PathNode
 	public override int GetHashCode()
 	{
 		//We can hash perfectly! WIN
-		return X*4098+Y;
+		return (X >> (sizeof(int)/2)) + Y;
 	}
 }
 
