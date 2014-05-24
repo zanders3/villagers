@@ -66,10 +66,6 @@ public class MayorCommands : MonoBehaviour
 						return true;
 					}
 				}
-				else if (building.BuildingType == Tile.Stockpile)
-				{
-					
-				}
 			}
 			
 			Resource resource = GetComponentInHierarchy<Resource>(hit.collider);

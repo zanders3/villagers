@@ -49,7 +49,7 @@ public static class GameSettings
 	
 	public static readonly Dictionary<Tile, Dictionary<ResourceType, int>> BuildingCost = new Dictionary<Tile, Dictionary<ResourceType, int>>()
 	{
-		{ 
+		/*{ 
 			Tile.Stockpile, 
 			new Dictionary<ResourceType, int>()
 			{
@@ -69,7 +69,7 @@ public static class GameSettings
 			{
 				{ ResourceType.Wood, 40 }
 			}
-		}
+		}*/
 	};
 
 	//Construction gubbins

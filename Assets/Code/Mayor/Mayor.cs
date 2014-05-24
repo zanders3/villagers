@@ -17,7 +17,7 @@ public class Mayor : Character
 		);
 		
 		if (cameraRelMove.sqrMagnitude > 0.0f)
-			return cameraRelMove * MaxForce;
+			return cameraRelMove * MaxForce * 2.0f;
 		else
 			return -velocity / Time.deltaTime;
 	}

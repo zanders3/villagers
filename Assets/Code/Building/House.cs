@@ -27,8 +27,8 @@ public class House : MonoBehaviour
 			Stockpile.Resources[ResourceType.VillagerLimit] += VillagersPerHouse;
 			
 			//Town halls creates the first villager instantly!
-			if (GetComponent<Building>().BuildingType == Tile.TownHall)
-				CreateVillager();
+			//if (GetComponent<Building>().BuildingType == Tile.TownHall)
+			//	CreateVillager();
 			
 			isBuilt = true;
 		}

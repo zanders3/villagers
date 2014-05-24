@@ -42,13 +42,13 @@ public class Building : MonoBehaviour
 		Map.Instance.PlaceBuilding(BuildingType, Tx, Ty, Width, Height);
 		
 		//Town halls start off already built
-		if (BuildingType == Tile.TownHall)
+		/*if (BuildingType == Tile.TownHall)
 		{
 			health = TotalHealth;
 			IsBuilt = true;
 			TownHall = this;
 		}
-		else
+		else*/
 		{
 			health = 0;
 			IsBuilt = false;

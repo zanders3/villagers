@@ -46,7 +46,7 @@ public abstract class VillagerAIMode : MonoBehaviour
 	{
 		if (!string.IsNullOrEmpty(currentState))
 		{
-			Vector3 screenPos = Camera.mainCamera.WorldToScreenPoint(transform.position);
+			Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
 			GUI.Label(new Rect(screenPos.x, Screen.height - screenPos.y, 200.0f, 20.0f), currentState);
 		}
 	}
@@ -56,7 +56,7 @@ public abstract class VillagerAIMode : MonoBehaviour
 		//Is there any building work available?
 		float nearestBuilding = float.MaxValue;
 		Building buildingToBuild = null;
-		foreach (Building building in GameObject.FindSceneObjectsOfType(typeof(Building)).Cast<Building>())
+		foreach (Building building in GameObject.FindObjectsOfType<Building>())
 		{
 			if (!building.IsBuilt)
 			{

@@ -45,7 +45,7 @@ public class Pathfinder
 	
 	public static bool IsWalkable(Tile tile)
 	{
-		return tile == Tile.Ground || tile == Tile.Bridge;
+		return tile == Tile.Ground;
 	}
 	
 	List<PathNode> openList = new List<PathNode>();

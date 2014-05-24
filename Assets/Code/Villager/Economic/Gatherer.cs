@@ -10,8 +10,8 @@ public class Gatherer : Coward
 	
 	protected override IEnumerator RunDaytime()
 	{
-		Tile tileToGather;
-		switch (Type)
+        Tile tileToGather = Tile.Ground;
+		/*switch (Type)
 		{
 		case ResourceType.Stone:
 			tileToGather = Tile.Rock;
@@ -20,7 +20,7 @@ public class Gatherer : Coward
 		default:
 			tileToGather = Tile.Tree;
 			break;
-		}
+		}*/
 		
 		int resourceCarried = 0;
 		
