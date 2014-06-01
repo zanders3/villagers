@@ -6,3 +6,5 @@ Assembly-CSharp.pidb
 Villagers2-csharp.sln
 Villagers2.sln
 Villagers2.userprefs
+Assembly-CSharp-Editor.csproj
+*.csproj

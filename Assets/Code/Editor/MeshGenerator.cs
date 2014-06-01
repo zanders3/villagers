@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
+using System.Collections;
 
 public static class MeshGenerator
 {
@@ -10,9 +11,9 @@ public static class MeshGenerator
 		public Vector3 Normal;
 		public Vector2 UV;
 
-		public Vertex(Tile tile, float x, float y)
+		public Vertex(float x, float y, float ux, float uy)
 		{
-			Pos = new Vector3(x + 0.5f, (int)tile - 1.0f, y + 0.5f);
+			Pos = new Vector3(x + 0.5f, 0.0f, y + 0.5f);
 			Normal = Vector3.up;
 			UV = new Vector2(x, y);
 		}
@@ -21,14 +22,14 @@ public static class MeshGenerator
 		{
 			Vertex o = obj as Vertex;
 			if (o != null)
-				return Pos == o.Pos;
+				return Pos == o.Pos && UV == o.UV;
 			else
 				return false;
 		}
 		
 		public override int GetHashCode()
 		{
-			return Pos.GetHashCode();
+			return Pos.GetHashCode() | UV.GetHashCode();
 		}
 	}
 
@@ -81,9 +82,9 @@ public static class MeshGenerator
 			//Case 7 Full Bottom Right
 			new int[]
 			{
-				4, 6, 7,
-				7, 1, 4,
-				1, 2, 4
+				7, 1, 2,
+				2, 6, 7,
+				2, 4, 6
 			},
 			//Case 8 Top Left
 			new int[]
@@ -118,9 +119,9 @@ public static class MeshGenerator
 			//Case 13 Full Top Left
 			new int[]
 			{
-				0, 2, 3,
-				0, 3, 5,
-				0, 5, 6
+				2, 3, 5,
+				5, 6, 2,
+				2, 6, 0
 			},
 			//Case 14 Full Top Right
 			new int[]
@@ -137,36 +138,34 @@ public static class MeshGenerator
 			}
 		};
 
-		for (Tile currentTile = Tile.Ground; currentTile <= Tile.Ground; currentTile++)
+		Tile tile = Tile.Ground;
+		for (int x = -1; x<level.Width; x++)
 		{
-			for (int x = -1; x<level.Width; x++)
+			for (int y = -1; y<level.Height; y++)
 			{
-				for (int y = -1; y<level.Height; y++)
-				{
-					int ind = 
-						(level[x,y] == currentTile ? 8 : 0) + 
-						(level[x+1,y] == currentTile ? 4 : 0) +
-						(level[x+1,y+1] == currentTile ? 2 : 0) +
-						(level[x,y+1] == currentTile ? 1 : 0);
+				int ind = 
+					(level[x,y] == tile ? 8 : 0) + 
+					(level[x+1,y] == tile ? 4 : 0) +
+					(level[x+1,y+1] == tile ? 2 : 0) +
+					(level[x,y+1] == tile ? 1 : 0);
 
-					int offset = verts.Count;
-					foreach (int i in fillShapes[ind])
-						inds.Add(i + offset);
+				int offset = verts.Count;
+				foreach (int i in fillShapes[ind])
+					inds.Add(i + offset);
 
-					float yThresh = level[x,y] == currentTile ? 0.2f : 0.8f;
-
-					verts.Add(new Vertex(currentTile, x, y));
-					verts.Add(new Vertex(currentTile, x + (level[x,y] == currentTile ? 0.2f : 0.8f), y));
-					verts.Add(new Vertex(currentTile, x + 1.0f, y));
-					verts.Add(new Vertex(currentTile, x + 1.0f, y + (level[x+1,y] == currentTile ? 0.2f : 0.8f)));
-					verts.Add(new Vertex(currentTile, x + 1.0f, y + 1.0f));
-					verts.Add(new Vertex(currentTile, x + (level[x,y+1] == currentTile ? 0.2f : 0.8f), y + 1.0f));
-					verts.Add(new Vertex(currentTile, x, y + 1.0f));
-					verts.Add(new Vertex(currentTile, x, y + (level[x,y] == currentTile ? 0.2f : 0.8f)));
-				}
+				float min = 0.2f, max = 0.8f;
+				int total = 0;
+				verts.Add(new Vertex(x, y, total == 2 ? 0.0f : 1.0f, 0.0f));
+				verts.Add(new Vertex(x + (level[x,y] == tile ? min : max), y, total == 2 ? 0.0f : 1.0f, 1.0f));
+				verts.Add(new Vertex(x + 1.0f, y, total == 2 ? 1.0f : 0.0f, 0.0f));
+				verts.Add(new Vertex(x + 1.0f, y + (level[x+1,y] == tile ? min : max), total == 2 ? 1.0f : 0.0f, 1.0f));
+				verts.Add(new Vertex(x + 1.0f, y + 1.0f, total == 2 ? 1.0f : 0.0f, 0.0f));
+				verts.Add(new Vertex(x + (level[x,y+1] == tile ? min : max), y + 1.0f, total == 2 ? 1.0f : 0.0f, 1.0f));
+				verts.Add(new Vertex(x, y + 1.0f, total == 2 ? 0.0f : 1.0f, 0.0f));
+				verts.Add(new Vertex(x, y + (level[x,y] == tile ? min : max), total == 2 ? 0.0f : 1.0f, 1.0f));
 			}
 		}
-		
+
 		ToMesh(meshFilter, verts, inds);
 	}
 	

@@ -25,6 +25,8 @@ public class Map : MonoBehaviour
 
 	public Pathfinder Pathfinder = null;
 	
+    public GameObject MapParts;
+
 	public int MapVersion
 	{
 		get;
