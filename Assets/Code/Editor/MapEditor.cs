@@ -30,6 +30,8 @@ public class MapEditor : Editor
 		Map map = target as Map;
 		Level level = map.Level;
 
+		map.MeshTransition = (MeshTransition)EditorGUILayout.ObjectField(map.MeshTransition, typeof(MeshTransition), false);
+
 		GUILayout.BeginHorizontal();
 		{
 			width = EditorGUILayout.IntField(width);
@@ -86,7 +88,7 @@ public class MapEditor : Editor
 				Event.current.Use();
 
 				level[(int)position.x, (int)position.z] = selectedTile;
-				MeshGenerator.GenerateMesh(level, map.GetComponent<MeshFilter>());
+				MeshGenerator.GenerateMesh(map.MeshTransition, level, map.GetComponent<MeshFilter>());
 			}
 			else if (Event.current.type == EventType.mouseDown)
 				Selection.activeGameObject = null;

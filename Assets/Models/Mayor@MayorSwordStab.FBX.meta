@@ -1,0 +1,130 @@
+fileFormatVersion: 2
+guid: c2e23e4abf95f4539a2af7c47800541d
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: Mayor
+    100002: Mayor 1
+    100004: //RootNode
+    100006: MayorHat1
+    100008: MayorHat2
+    100010: MayorHead
+    100012: MayorLCalf
+    100014: MayorLCollarbone
+    100016: MayorLFoot
+    100018: MayorLForearm
+    100020: MayorLIKTarget
+    100022: MayorLPalm
+    100024: MayorLPlatform
+    100026: MayorLThigh
+    100028: MayorLUpperarm
+    100030: MayorNeck1
+    100032: MayorNeck2
+    100034: MayorPelvis
+    100036: MayorRCalf
+    100038: MayorRCollarbone
+    100040: MayorRFoot
+    100042: MayorRForearm
+    100044: MayorRibcage
+    100046: MayorRIKTarget
+    100048: MayorRPalm
+    100050: MayorRPlatform
+    100052: MayorRThigh
+    100054: MayorRUpperarm
+    100056: MayorSpine1
+    100058: MayorSpine2
+    100060: MayorSpine3
+    100062: MayorSpine4
+    100064: Sword
+    400000: Mayor
+    400002: Mayor 1
+    400004: //RootNode
+    400006: MayorHat1
+    400008: MayorHat2
+    400010: MayorHead
+    400012: MayorLCalf
+    400014: MayorLCollarbone
+    400016: MayorLFoot
+    400018: MayorLForearm
+    400020: MayorLIKTarget
+    400022: MayorLPalm
+    400024: MayorLPlatform
+    400026: MayorLThigh
+    400028: MayorLUpperarm
+    400030: MayorNeck1
+    400032: MayorNeck2
+    400034: MayorPelvis
+    400036: MayorRCalf
+    400038: MayorRCollarbone
+    400040: MayorRFoot
+    400042: MayorRForearm
+    400044: MayorRibcage
+    400046: MayorRIKTarget
+    400048: MayorRPalm
+    400050: MayorRPlatform
+    400052: MayorRThigh
+    400054: MayorRUpperarm
+    400056: MayorSpine1
+    400058: MayorSpine2
+    400060: MayorSpine3
+    400062: MayorSpine4
+    400064: Sword
+    2300000: Sword
+    3300000: Sword
+    4300000: Mayor
+    4300002: Sword
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Mayor
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  userData: 

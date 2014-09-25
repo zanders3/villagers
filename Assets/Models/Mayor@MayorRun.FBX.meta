@@ -1,0 +1,121 @@
+fileFormatVersion: 2
+guid: d448a66823539412ba19fe0a619719cf
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: Mayor
+    100002: Mayor 1
+    100004: //RootNode
+    100006: MayorHat1
+    100008: MayorHat2
+    100010: MayorHead
+    100012: MayorLCalf
+    100014: MayorLCollarbone
+    100016: MayorLFoot
+    100018: MayorLForearm
+    100020: MayorLPalm
+    100022: MayorLPlatform
+    100024: MayorLThigh
+    100026: MayorLUpperarm
+    100028: MayorNeck1
+    100030: MayorNeck2
+    100032: MayorPelvis
+    100034: MayorRCalf
+    100036: MayorRCollarbone
+    100038: MayorRFoot
+    100040: MayorRForearm
+    100042: MayorRibcage
+    100044: MayorRPalm
+    100046: MayorRPlatform
+    100048: MayorRThigh
+    100050: MayorRUpperarm
+    100052: MayorSpine1
+    100054: MayorSpine2
+    100056: MayorSpine3
+    100058: MayorSpine4
+    400000: Mayor
+    400002: Mayor 1
+    400004: //RootNode
+    400006: MayorHat1
+    400008: MayorHat2
+    400010: MayorHead
+    400012: MayorLCalf
+    400014: MayorLCollarbone
+    400016: MayorLFoot
+    400018: MayorLForearm
+    400020: MayorLPalm
+    400022: MayorLPlatform
+    400024: MayorLThigh
+    400026: MayorLUpperarm
+    400028: MayorNeck1
+    400030: MayorNeck2
+    400032: MayorPelvis
+    400034: MayorRCalf
+    400036: MayorRCollarbone
+    400038: MayorRFoot
+    400040: MayorRForearm
+    400042: MayorRibcage
+    400044: MayorRPalm
+    400046: MayorRPlatform
+    400048: MayorRThigh
+    400050: MayorRUpperarm
+    400052: MayorSpine1
+    400054: MayorSpine2
+    400056: MayorSpine3
+    400058: MayorSpine4
+    4300000: Mayor
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Mayor
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  userData: 

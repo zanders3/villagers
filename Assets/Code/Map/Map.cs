@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -24,8 +25,7 @@ public class Map : MonoBehaviour
 #endif
 
 	public Pathfinder Pathfinder = null;
-	
-    public GameObject MapParts;
+    public MeshTransition MeshTransition = null;
 
 	public int MapVersion
 	{
